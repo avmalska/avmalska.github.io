@@ -6,13 +6,24 @@
 <script type="text/javascript" src="js/cliquer.js"></script>
 
 </head>
-<body onload="getClicks()">
+<body onload="getAll()">
 
 	<h1>teste</h1>
 	<p>bla</p>
 
-	<button type="button" onClick="clickCounter()">Poggers</button>
-	<p>Pogs: <a id="clicks"></a></p>
+	<p>Pogs: <a id="Poggers"></a> autoPogs: <a id="autoPoggers"></a></p>
+
+	<button type="button" onClick="pogCounter()">Poggers</button>
+
+	<p>10 pogs por 1 auto pog :)</p>
+	<button type="button" onClick="autoPog()">Auto Poggers</button>
+
+	<p>(Auto save de 30 em 30 segs)</p>
+	<button type="button" onClick="saveGame()">Salvar manual</button>
+
+	<button type="button" onClick="teste()">resset all</button>
+
+	<button type="button" onClick="resetAll()">resset all TRUEEE</button>
 
 </body>
 </html>
