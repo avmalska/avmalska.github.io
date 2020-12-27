@@ -49,8 +49,10 @@ function saveGame() {
 function resetAll() {
   localStorage.pog = 0;
   localStorage.autopog = 0;
+  localStorage.autopogcost = 10;
   pogs = 0;
   autopogs = 0;
+  autopogcost = 10;
   document.getElementById("autoPoggers").innerHTML = localStorage.autopog;
   document.getElementById("Poggers").innerHTML = localStorage.pog;
   localStorage.clear();
