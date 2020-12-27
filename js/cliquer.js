@@ -11,6 +11,12 @@ function getAll() {
     } else {
     document.getElementById("autoPoggers").innerHTML = 0;
   }
+  if (localStorage.autopogcost) {
+    document.getElementById("autoPogCost").innerHTML = localStorage.autopogcost;
+    autopogcost = Number(localStorage.autopogcost);
+    } else {
+    document.getElementById("autoPogCost").innerHTML = 10;
+  }
 }
 
 function pogCounter() {
@@ -19,10 +25,13 @@ function pogCounter() {
 }
 
 function autoPog() {
-  if (pogs >= 10) {
-    pogs -= 10;
+  if (pogs >= autopogcost) {
+    pogs -= autopogcost;
     autopogs += 1;
     document.getElementById("autoPoggers").innerHTML = autopogs;
+    var incrementautopog = Math.round((autopogcost * 2) / 10);
+    autopogcost += incrementautopog;
+    document.getElementById("autoPogCost").innerHTML = autopogcost;
   }
 }
 
@@ -34,23 +43,22 @@ function incrementPog() {
 function saveGame() {
   localStorage.pog = pogs;
   localStorage.autopog = autopogs;
+  localStorage.autopogcost = autopogcost;
 }
 
-function teste() {
+function resetAll() {
   localStorage.pog = 0;
   localStorage.autopog = 0;
   pogs = 0;
   autopogs = 0;
   document.getElementById("autoPoggers").innerHTML = localStorage.autopog;
   document.getElementById("Poggers").innerHTML = localStorage.pog;
-}
-
-function resetAll() {
   localStorage.clear();
 }
 
 pogs = 0
 autopogs = 0
+autopogcost = 10
 
 setInterval(saveGame, 30000);
 
